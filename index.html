@@ -37,18 +37,18 @@
  //Segundo marcador: Coyoacán
    L.marker([19.3467, -99.1617]).addTo(map)
       .bindPopup('Coyoacán'); 
-// Tercer marcador: UAM Cuajimalpa
-      L.marker([19.3519954, -99.2826512]).addTo(map)
-         .bindPopup('UAM Cuajimalpa')
-          .openPopup();
- //Cuarto marcador: CC Santa Fe
-     L.marker([19.36156939310918, -99.27367225645682]).addTo(map)
-          .bindPopup('Cenrto Comercial Santa Fe'); 
 
- //Cuarto marcador: Cablebus Vasco de Quiroga
-     L.marker([19.384132189435483, -99.23183371140516]).addTo(map)
-          .bindPopup('Cablebus Vasco de Quiroga'); 
+  L.marker([19.343064, -99.287139]).addTo(map)
+  .bindPopup('San Mateo');
 
+ L.marker([19.4017086,-99.1934848,16]).addTo(map)
+  .bindPopup('Tacubaya');
+   L.marker([16.8567239,-99.904518,14.05]).addTo(map)
+  .bindPopup('Acapulco de Juarez');
+L.marker([19.3520841,-99.2852059,17]).addTo(map)
+  .bindPopup('UAM CUAJIMALPA');
+ L.marker([  19.3858505,-99.2781952,3]).addTo(map)
+  .bindPopup('CDA. GRANADOS');
     var alcaldiasLayer = L.geoJSON(null, {
         style: {
             color: 'green', 
@@ -77,3 +77,4 @@ L.control. layers(null, overlayMaps).addTo(map);
 </script> 
 </body>
 </HTML>
+
