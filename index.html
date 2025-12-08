@@ -1,13 +1,13 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Hola mapa</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewpoint" content="widnth=device-width, intial-scale=1.0"/>
     <!-- Incluye la hoja de estilos de Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />  
     <style>
-        /* Define el tamaño del contenedor del mapa */
+        /*Define el tamaño del contenedor del mapa */
         #map {
             width: 800px;
             height: 500px;
@@ -15,68 +15,65 @@
     </style>
 </head>
 <body>
-    <!-- Título principal -->
-    <h1>Hola mapa</h1>
- <!-- Contenedor donde se renderiza el mapa -->
+
+<!-- Título principal -->
+ <h1>Hola mapa</h1>
+
+<!-- Contenedor donde se renderiza el mapa -->
 <div id="map"></div>
+
 <!-- Incluye la librería de Leaflet -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-    // Inicializa el mapa en el div 'map' con centro en las coordenadas de la CDMX y un zoom de 13
-    var map = L.map('map').setView([19.4326, -99.1332], 13);    
-    // Agrega la capa de mapa base de OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors' // Muestra el crédito obligatorio
-    }).addTo(map);
-</script>
-<script>
-// Agrega un marcador en el centro de la CDMX con un popup abierto por defecto
-L.marker([19.4326, -99.1332]).addTo(map)
-  .bindPopup('Centro de la CDMX')
-  .openPopup();
-// Segundo marcador: Coyoacán
-L.marker([19.3467, -99.1617]).addTo(map)
-  .bindPopup('Coyoacán');
-  L.marker([19.343064, -99.287139]).addTo(map)
-  .bindPopup('San Mateo');
- L.marker([19.4017086,-99.1934848,16]).addTo(map)
-  .bindPopup('Tacubaya');
-   L.marker([16.8567239,-99.904518,14.05]).addTo(map)
-  .bindPopup('Acapulco de Juarez');
-L.marker([19.3520841,-99.2852059,17]).addTo(map)
-  .bindPopup('UAM CUAJIMALPA');
- L.marker([  19.3858505,-99.2781952,3]).addTo(map)
-  .bindPopup('CDA. GRANADOS');
-   // Define la capa vacía para las alcaldías
-var alcaldiasLayer = L.geoJSON(null, {
-    style: {
-        color: 'blue',
-        weight: 2,
-        fillOpacity: 0.1
-    },
-    onEachFeature: function (feature, layer) {
-        if (feature.properties && feature.properties.NOMGEO) {
-            layer.bindPopup('Alcaldia: ' + feature.properties.NOMGEO);
+    // Inicializa el mapa en el div "map" con concreto de la CDMX y un zoom de 13
+    var map = L.map('map').setView([19.4326, -99.1332], 13);
+    L. tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors' 
+    }).addTo (map)
+    //Agrega un marcador en e centro de la CDMX 
+    L.marker([19.4326, -99.1332]).addTo(map)
+   .bindPopup('Centro de la CDMX')
+   .openPopup();
+ //Segundo marcador: Coyoacán
+   L.marker([19.3467, -99.1617]).addTo(map)
+      .bindPopup('Coyoacán'); 
+// Tercer marcador: UAM Cuajimalpa
+      L.marker([19.3519954, -99.2826512]).addTo(map)
+         .bindPopup('UAM Cuajimalpa')
+          .openPopup();
+ //Cuarto marcador: CC Santa Fe
+     L.marker([19.36156939310918, -99.27367225645682]).addTo(map)
+          .bindPopup('Cenrto Comercial Santa Fe'); 
+
+ //Cuarto marcador: Cablebus Vasco de Quiroga
+     L.marker([19.384132189435483, -99.23183371140516]).addTo(map)
+          .bindPopup('Cablebus Vasco de Quiroga'); 
+
+    var alcaldiasLayer = L.geoJSON(null, {
+        style: {
+            color: 'green', 
+            weight: 2, 
+            fillopacity: 0.1
+        },
+        onEachFeature: function (feature, layer) {
+            if (feature.properties && feature.properties. NOMGEO) {
+             layer. bindPopup('Alcaldía: ' + feature.properties.NOMGEO);
+             }
         }
-    }
-});
- // Cargar el archivo GeoJSON (debe estar en la misma carpeta o cambiar la ruta)
-fetch('alcaldias.geojson')
-    .then(response => response.json())
-    .then(data => {
-        alcaldiasLayer.addData(data);
     });
-// Agregar control de capas para encender/apagar
-var overlayMaps = {
-    "Alcaldias CDMX": alcaldiasLayer
-};
-L.control.leyers(null, overlayMaps).addTo(map);
-</script>
+
+    fetch(' alcaldias.geojson')
+        .then(response => response. json())
+        .then(data => {
+            alcaldiasLayer. addData(data);
+        });
+
+    // Agregar control de capas para encender/apagar
+    var overlayMaps = {
+        "Alcaldías CDMX": alcaldiasLayer
+    };
+L.control. layers(null, overlayMaps).addTo(map);
+
+</script> 
 </body>
-</html>
-
-
-
-
-
-
+</HTML>
