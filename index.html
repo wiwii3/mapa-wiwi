@@ -73,7 +73,7 @@ var alcaldiasLayer = L.geoJSON(null, {
     },
     onEachFeature: function (feature, layer) {
         if (feature.properties && feature.properties.NOMGEO) {
-            layer.bindPopup('Alcaldía: ' + feature.properties.NOMGEO);
+            layer.bindPopup('Alcaldia: ' + feature.properties.NOMGEO);
         }
     }
 });
@@ -94,5 +94,6 @@ var overlayMaps = {
  
 </body>
 </html>
+
 
 
